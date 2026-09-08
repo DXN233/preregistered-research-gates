@@ -1,0 +1,2 @@
+# Frozen evidence tables are byte-addressed artifacts. Never rewrite line endings.
+*.csv binary
