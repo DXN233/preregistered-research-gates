@@ -1,0 +1,34 @@
+{
+  "experimentId": "gtsam-pinocchio-severe-development-20260904",
+  "status": "engineering_throughput_stop",
+  "behaviorGate": "not_evaluated",
+  "startedAtApprox": "2026-09-04T18:12:41+08:00",
+  "stoppedAt": "2026-09-04T20:29:00+08:00",
+  "elapsedMinutesApprox": 136,
+  "observations": {
+    "instanceStatusDuringRun": "Running",
+    "cpuActivityContinuous": true,
+    "containerOrResourceFailureObserved": false,
+    "completedResultPackageReturned": false,
+    "partialTrialsAcceptedAsEvidence": false
+  },
+  "interpretation": {
+    "protocolGate": "passed previously",
+    "runtimeEngineering": "failed practical throughput for this development batch",
+    "controlBenefit": "unknown",
+    "severePushReached": "unknown",
+    "falseTerminalAccepts": "unknown",
+    "jointBoundaryViolations": "unknown"
+  },
+  "cause": "The public gtsam 4.2 wheel lacks IncrementalFixedLagSmoother. The correctness backend rebuilds a bounded ISAM2 graph and computes per-dimension marginal covariance on every estimator update, making the 32-episode MuJoCo batch impractically slow.",
+  "stopDecision": "Stopped to avoid unbounded pay-as-you-go cost. This is not classified as a behavioral failure.",
+  "nextGate": "Replace the batch-rebuild path with a genuinely incremental fixed-lag implementation or an equivalent bounded-state backend, add an explicit estimator wall-clock throughput gate, then rerun the unchanged frozen severe design.",
+  "cloudCleanup": {
+    "stopRequested": true,
+    "onStartCleared": true,
+    "bundleObjectDeleted": true,
+    "resultObjectDeleted": true,
+    "credentialsPersisted": false
+  },
+  "claimBoundary": "No behavioral conclusion is drawn from an interrupted batch. The valid new evidence is limited to protocol correctness already established and insufficient practical throughput of this engineering implementation."
+}

@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.embodied.runtime/schemas/execution-evidence-v0.1.json",
+  "title": "ExecutionEvidence v0.1",
+  "description": "Immutable evidence produced by a body-side executor. Acceptance of this object is not authorization to mutate knowledge.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "event_id", "idempotency_key", "episode_id", "task_id", "body", "execution", "measurements", "transition", "recovery", "confidence", "provenance", "safety_flags", "knowledge", "authority", "experiment", "quality", "integrity"],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "event_id": {"type": "string", "pattern": "^eev_[0-9a-f]{24}$"},
+    "idempotency_key": {"type": "string", "pattern": "^idem_[0-9a-f]{32}$"},
+    "episode_id": {"type": "string", "minLength": 1},
+    "task_id": {"type": "string", "minLength": 1},
+    "body": {
+      "type": "object", "additionalProperties": false,
+      "required": ["body_id", "body_spec_version", "representation_version"],
+      "properties": {
+        "body_id": {"type": "string", "minLength": 1},
+        "body_spec_version": {"type": "string", "minLength": 1},
+        "representation_version": {"enum": ["v1", "v2", "unknown"]}
+      }
+    },
+    "execution": {
+      "type": "object", "additionalProperties": false,
+      "required": ["primitive", "phase", "phase_index", "observed_at", "executed_at", "feedback_at", "causal_window"],
+      "properties": {
+        "primitive": {"type": "string", "minLength": 1},
+        "phase": {"type": "string", "minLength": 1},
+        "phase_index": {"type": "integer", "minimum": 0},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "executed_at": {"type": "string", "format": "date-time"},
+        "feedback_at": {"type": "string", "format": "date-time"},
+        "causal_window": {
+          "type": "object", "additionalProperties": false,
+          "required": ["start", "end"],
+          "properties": {"start": {"type": "string", "format": "date-time"}, "end": {"type": "string", "format": "date-time"}}
+        }
+      }
+    },
+    "measurements": {
+      "type": "object", "additionalProperties": false,
+      "required": ["relation_error", "object_error", "ee_speed", "contact_state", "slip", "torque_margin"],
+      "properties": {
+        "relation_error": {"type": ["number", "null"], "minimum": 0},
+        "object_error": {"type": ["number", "null"], "minimum": 0},
+        "ee_speed": {"type": ["number", "null"], "minimum": 0},
+        "contact_state": {"enum": ["contact", "no_contact", "unknown"]},
+        "slip": {"type": ["boolean", "null"]},
+        "torque_margin": {"type": ["number", "null"]}
+      }
+    },
+    "transition": {
+      "type": "object", "additionalProperties": false,
+      "required": ["proposal", "outcome", "reason"],
+      "properties": {
+        "proposal": {"enum": ["advance", "hold", "recover", "abort", "replan"]},
+        "outcome": {"enum": ["accepted", "rejected", "not_applied"]},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "recovery": {
+      "type": "object", "additionalProperties": false,
+      "required": ["recoverable", "requested_replan_scope"],
+      "properties": {
+        "recoverable": {"type": "boolean"},
+        "requested_replan_scope": {"enum": ["none", "primitive", "phase", "task", "safety_stop"]}
+      }
+    },
+    "confidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["value", "method"],
+      "properties": {"value": {"type": "number", "minimum": 0, "maximum": 1}, "method": {"type": "string", "minLength": 1}}
+    },
+    "provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_type", "source_uri", "source_record_id", "adapter_version", "source_sha256"],
+      "properties": {
+        "source_type": {"enum": ["simulation_log", "sensor_log", "shadow_mode", "live_executor", "synthetic_fixture"]},
+        "source_uri": {"type": "string", "minLength": 1},
+        "source_record_id": {"type": "string", "minLength": 1},
+        "adapter_version": {"type": "string", "minLength": 1},
+        "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "safety_flags": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "knowledge": {
+      "type": "object", "additionalProperties": false,
+      "required": ["base_revision", "write_intent"],
+      "properties": {"base_revision": {"type": "string", "minLength": 1}, "write_intent": {"const": "propose_only"}}
+    },
+    "authority": {
+      "type": "object", "additionalProperties": false,
+      "required": ["principal", "permissions", "scope"],
+      "properties": {
+        "principal": {"type": "string", "minLength": 1},
+        "permissions": {"type": "array", "uniqueItems": true, "items": {"enum": ["submit_evidence", "propose_transition", "propose_replan", "propose_knowledge_patch", "safety_stop"]}},
+        "scope": {
+          "type": "object", "additionalProperties": false,
+          "required": ["task_id", "body_id", "body_spec_version", "primitive"],
+          "properties": {"task_id": {"type": "string"}, "body_id": {"type": "string"}, "body_spec_version": {"type": "string"}, "primitive": {"type": "string"}}
+        }
+      }
+    },
+    "experiment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["controller", "disturbance", "seed", "factors"],
+      "properties": {
+        "controller": {"type": "string"}, "disturbance": {"type": "string"}, "seed": {"type": "integer"},
+        "factors": {
+          "type": "object", "additionalProperties": false,
+          "required": ["body_representation", "feedback"],
+          "properties": {"body_representation": {"enum": ["v1", "v2", "unknown"]}, "feedback": {"enum": ["off", "raw", "anchored", "oracle", "unknown"]}}
+        }
+      }
+    },
+    "quality": {
+      "type": "object", "additionalProperties": false,
+      "required": ["derived_fields", "unknown_fields"],
+      "properties": {
+        "derived_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "unknown_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "integrity": {
+      "type": "object", "additionalProperties": false,
+      "description": "SHA-256 of the canonical JSON object after removing this integrity field.",
+      "required": ["algorithm", "payload_sha256"],
+      "properties": {
+        "algorithm": {"const": "sha256-canonical-json-v1"},
+        "payload_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  }
+}

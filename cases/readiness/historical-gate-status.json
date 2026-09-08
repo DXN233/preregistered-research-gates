@@ -1,0 +1,54 @@
+{
+  "schema_version": "0.1",
+  "experiment": {
+    "factor_a": [
+      "body_v1",
+      "body_v2"
+    ],
+    "factor_b": [
+      "feedback_off",
+      "feedback_anchored"
+    ],
+    "formal_run_ready": false
+  },
+  "gates": {
+    "execution_evidence_mechanism": true,
+    "body_v2_behavior": false,
+    "latency_estimator_behavior": false,
+    "anchored_feedback_implementation": false
+  },
+  "blockers": [
+    "body_v2_behavior",
+    "latency_estimator_behavior",
+    "anchored_feedback_implementation"
+  ],
+  "channels": {
+    "local_headless_mujoco": {
+      "status": "ready",
+      "role": "exact frozen replay and inexpensive development checks",
+      "evidence_ceiling": "constructed simulation"
+    },
+    "aliyun_dsw_headless_mujoco": {
+      "status": "prepared_not_run_this_audit",
+      "role": "exact-environment remote batch after throughput repair",
+      "evidence_ceiling": "constructed simulation on remote compute"
+    },
+    "maniskill_colab": {
+      "status": "available_replication_candidate",
+      "role": "browser-accessible independent replication after the frozen test",
+      "evidence_ceiling": "different simulator/task stack; not a drop-in replacement"
+    },
+    "cloudgripper_shadow": {
+      "status": "mock_verified_shadow_only",
+      "role": "remote observation/logging channel after credentials and task mapping",
+      "evidence_ceiling": "no actuation and no real-task outcome in current package"
+    },
+    "isaac_sim_cloud": {
+      "status": "available_but_not_selected",
+      "role": "later cross-simulator or GPU-heavy replication",
+      "evidence_ceiling": "port changes physics and can confound the frozen comparison"
+    }
+  },
+  "decision": "prepare_only_do_not_run_formal_2x2",
+  "claim_boundary": "Channel readiness, interface tests, and historical component results are distinct. A ready channel is not evidence that feedback improves behavior."
+}

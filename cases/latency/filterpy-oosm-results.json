@@ -1,0 +1,160 @@
+{
+  "backend": {
+    "name": "FilterPy KalmanFilter",
+    "version": "1.4.5"
+  },
+  "development": {
+    "seeds": [
+      35001,
+      35002,
+      35003,
+      35004,
+      35005,
+      35006,
+      35007,
+      35008
+    ],
+    "thresholds": [
+      0.05,
+      0.1,
+      0.2
+    ],
+    "results": {
+      "0.05": {
+        "episodes": 32,
+        "successes": 2,
+        "success_rate": 0.0625,
+        "push_reached": 3,
+        "push_reached_rate": 0.09375,
+        "false_terminal_accepts": 0,
+        "joint_boundary_violations": 0,
+        "estimate_accepts": 532,
+        "estimate_rejects": 5604,
+        "first_failed_stage": {
+          "approach": 27,
+          "contact": 2,
+          "None": 2,
+          "push": 1
+        }
+      },
+      "0.1": {
+        "episodes": 32,
+        "successes": 0,
+        "success_rate": 0.0,
+        "push_reached": 3,
+        "push_reached_rate": 0.09375,
+        "false_terminal_accepts": 0,
+        "joint_boundary_violations": 0,
+        "estimate_accepts": 1759,
+        "estimate_rejects": 4255,
+        "first_failed_stage": {
+          "approach": 24,
+          "contact": 5,
+          "push": 3
+        }
+      },
+      "0.2": {
+        "episodes": 32,
+        "successes": 0,
+        "success_rate": 0.0,
+        "push_reached": 3,
+        "push_reached_rate": 0.09375,
+        "false_terminal_accepts": 0,
+        "joint_boundary_violations": 0,
+        "estimate_accepts": 3956,
+        "estimate_rejects": 2989,
+        "first_failed_stage": {
+          "approach": 16,
+          "contact": 13,
+          "push": 3
+        }
+      }
+    },
+    "selected_threshold": 0.05,
+    "proceed_to_holdout": true
+  },
+  "development_trials_sha256": "9eb538e078fba1ea775e01fa766b47f5b3691068ab8eae5d0c297ef8720590de",
+  "holdout": {
+    "seeds": [
+      36001,
+      36002,
+      36003,
+      36004,
+      36005,
+      36006,
+      36007,
+      36008,
+      36009,
+      36010,
+      36011,
+      36012,
+      36013,
+      36014,
+      36015,
+      36016,
+      36017,
+      36018,
+      36019,
+      36020,
+      36021,
+      36022,
+      36023,
+      36024
+    ],
+    "trials": 768,
+    "severe_filterpy": {
+      "episodes": 96,
+      "successes": 3,
+      "success_rate": 0.03125,
+      "push_reached": 10,
+      "push_reached_rate": 0.10416666666666667,
+      "false_terminal_accepts": 0,
+      "joint_boundary_violations": 0,
+      "estimate_accepts": 1446,
+      "estimate_rejects": 16829,
+      "first_failed_stage": {
+        "approach": 80,
+        "contact": 6,
+        "push": 7,
+        "None": 3
+      }
+    },
+    "nonsevere_baseline_success": 0.9479166666666666,
+    "nonsevere_filterpy_success": 0.8993055555555556,
+    "nonsevere_delta": -0.04861111111111105,
+    "body_deltas": {
+      "arm5_reference": 0.02777777777777779,
+      "arm5_distal_heavy": 0.0,
+      "arm5_weak_actuator": -0.2222222222222222,
+      "arm5_posture_shifted": 0.0
+    },
+    "filterpy_all": {
+      "episodes": 384,
+      "successes": 262,
+      "success_rate": 0.6822916666666666,
+      "push_reached": 293,
+      "push_reached_rate": 0.7630208333333334,
+      "false_terminal_accepts": 0,
+      "joint_boundary_violations": 0,
+      "estimate_accepts": 52654,
+      "estimate_rejects": 96590,
+      "first_failed_stage": {
+        "None": 262,
+        "contact": 11,
+        "push": 31,
+        "approach": 80
+      }
+    }
+  },
+  "gates": {
+    "severe_push_reached_rate_at_least_50pct": false,
+    "zero_false_terminal_accepts": true,
+    "zero_joint_boundary_violations": true,
+    "nonsevere_overall_success_delta_at_least_minus_2pp": false,
+    "each_body_nonsevere_delta_at_least_minus_5pp": false
+  },
+  "gate_pass": false,
+  "verdict": "filterpy_oosm_fail",
+  "holdout_trials_sha256": "b1fd92d7d4b3b40927d0fb375cd3806e6869b27c5c3d99c49706f1ce4f8b10cd",
+  "claim_boundary": "FilterPy engineering backend with timestamped delayed proprioception, historical torques, uncertainty/innovation gates and fallback; simulated bodies only."
+}

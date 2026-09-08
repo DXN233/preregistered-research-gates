@@ -1,0 +1,822 @@
+{
+  "design": {
+    "seeds": [
+      23001,
+      23002,
+      23003,
+      23004,
+      23005,
+      23006,
+      23007,
+      23008,
+      23009,
+      23010,
+      23011,
+      23012,
+      23013,
+      23014,
+      23015,
+      23016,
+      23017,
+      23018,
+      23019,
+      23020,
+      23021,
+      23022,
+      23023,
+      23024
+    ],
+    "bodies": [
+      "arm5_reference",
+      "arm5_distal_heavy",
+      "arm5_weak_actuator",
+      "arm5_posture_shifted"
+    ],
+    "disturbances": [
+      "nominal",
+      "low_friction",
+      "latency_load",
+      "severe"
+    ],
+    "conditions": [
+      "v1",
+      "v2_full",
+      "v2_no_mass",
+      "v2_no_torque",
+      "v2_no_jacobian"
+    ],
+    "trials": 1920,
+    "feedback_bus": "excluded",
+    "runtime": {
+      "python": "3.13.3",
+      "mujoco": "3.3.7",
+      "numpy": "2.2.6"
+    },
+    "legacy_source_sha256": "19f074a173b181e40a50799f60178e714d059a4867492e69d5823ce1b5d8eede",
+    "v2_source_sha256": "9b6eba931fa6a80de9b544620e472cf821d476c31f81574fae3ef12b408e2669",
+    "trials_path": "body-v2-trials.csv",
+    "trials_sha256": "2803e872c63624d602af052cbe90641f41b02d8b09c8951865686461c2be8bbf"
+  },
+  "representation_probe": {
+    "directions": {
+      "x": [
+        1.0,
+        0.0
+      ],
+      "diagonal": [
+        1.0,
+        0.45
+      ]
+    },
+    "contracts": {
+      "arm5_reference": {
+        "x": {
+          "total_mass": 3.8000000000000007,
+          "total_length": 0.85,
+          "base_mass_first_moment": 1.4357,
+          "base_mass_second_moment": 0.7401294999999999,
+          "endpoint_mass_first_moment": 1.7943,
+          "endpoint_mass_second_moment": 1.0449395,
+          "directional_force_capacity": 133.06308095885777,
+          "requested_force_margin": 52.22523238354311,
+          "jacobian_sigma_min": 0.09121680610085907,
+          "jacobian_sigma_max": 1.0763600429256648,
+          "jacobian_condition_number": 11.800018976059366,
+          "yoshikawa_manipulability": 0.09818212533026272,
+          "directional_velocity_manipulability": 0.10612112309341054,
+          "joint_limit_margin": 1.85
+        },
+        "diagonal": {
+          "total_mass": 3.8000000000000007,
+          "total_length": 0.85,
+          "base_mass_first_moment": 1.4357,
+          "base_mass_second_moment": 0.7401294999999999,
+          "endpoint_mass_first_moment": 1.7943,
+          "endpoint_mass_second_moment": 1.0449395,
+          "directional_force_capacity": 32.672529753609886,
+          "requested_force_margin": 12.069011901443954,
+          "jacobian_sigma_min": 0.09121680610085907,
+          "jacobian_sigma_max": 1.0763600429256648,
+          "jacobian_condition_number": 11.800018976059366,
+          "yoshikawa_manipulability": 0.09818212533026272,
+          "directional_velocity_manipulability": 0.4006150163109802,
+          "joint_limit_margin": 1.85
+        }
+      },
+      "arm5_distal_heavy": {
+        "x": {
+          "total_mass": 3.8,
+          "total_length": 0.85,
+          "base_mass_first_moment": 1.8638,
+          "base_mass_second_moment": 1.1488779999999998,
+          "endpoint_mass_first_moment": 1.3661999999999999,
+          "endpoint_mass_second_moment": 0.725918,
+          "directional_force_capacity": 133.06308095885777,
+          "requested_force_margin": 52.22523238354311,
+          "jacobian_sigma_min": 0.09121680610085907,
+          "jacobian_sigma_max": 1.0763600429256648,
+          "jacobian_condition_number": 11.800018976059366,
+          "yoshikawa_manipulability": 0.09818212533026272,
+          "directional_velocity_manipulability": 0.10612112309341054,
+          "joint_limit_margin": 1.85
+        },
+        "diagonal": {
+          "total_mass": 3.8,
+          "total_length": 0.85,
+          "base_mass_first_moment": 1.8638,
+          "base_mass_second_moment": 1.1488779999999998,
+          "endpoint_mass_first_moment": 1.3661999999999999,
+          "endpoint_mass_second_moment": 0.725918,
+          "directional_force_capacity": 32.672529753609886,
+          "requested_force_margin": 12.069011901443954,
+          "jacobian_sigma_min": 0.09121680610085907,
+          "jacobian_sigma_max": 1.0763600429256648,
+          "jacobian_condition_number": 11.800018976059366,
+          "yoshikawa_manipulability": 0.09818212533026272,
+          "directional_velocity_manipulability": 0.4006150163109802,
+          "joint_limit_margin": 1.85
+        }
+      },
+      "arm5_weak_actuator": {
+        "x": {
+          "total_mass": 3.8000000000000007,
+          "total_length": 0.85,
+          "base_mass_first_moment": 1.4357,
+          "base_mass_second_moment": 0.7401294999999999,
+          "endpoint_mass_first_moment": 1.7943,
+          "endpoint_mass_second_moment": 1.0449395,
+          "directional_force_capacity": 81.88497289775863,
+          "requested_force_margin": 31.753989159103455,
+          "jacobian_sigma_min": 0.09121680610085907,
+          "jacobian_sigma_max": 1.0763600429256648,
+          "jacobian_condition_number": 11.800018976059366,
+          "yoshikawa_manipulability": 0.09818212533026272,
+          "directional_velocity_manipulability": 0.10612112309341054,
+          "joint_limit_margin": 1.85
+        },
+        "diagonal": {
+          "total_mass": 3.8000000000000007,
+          "total_length": 0.85,
+          "base_mass_first_moment": 1.4357,
+          "base_mass_second_moment": 0.7401294999999999,
+          "endpoint_mass_first_moment": 1.7943,
+          "endpoint_mass_second_moment": 1.0449395,
+          "directional_force_capacity": 22.506727568928028,
+          "requested_force_margin": 8.002691027571212,
+          "jacobian_sigma_min": 0.09121680610085907,
+          "jacobian_sigma_max": 1.0763600429256648,
+          "jacobian_condition_number": 11.800018976059366,
+          "yoshikawa_manipulability": 0.09818212533026272,
+          "directional_velocity_manipulability": 0.4006150163109802,
+          "joint_limit_margin": 1.85
+        }
+      },
+      "arm5_posture_shifted": {
+        "x": {
+          "total_mass": 3.8000000000000007,
+          "total_length": 0.85,
+          "base_mass_first_moment": 1.4357,
+          "base_mass_second_moment": 0.7401294999999999,
+          "endpoint_mass_first_moment": 1.7943,
+          "endpoint_mass_second_moment": 1.0449395,
+          "directional_force_capacity": 79.83486635131358,
+          "requested_force_margin": 30.933946540525433,
+          "jacobian_sigma_min": 0.10658137693302447,
+          "jacobian_sigma_max": 1.0490642354375186,
+          "jacobian_condition_number": 9.842847461960906,
+          "yoshikawa_manipulability": 0.1118107107041213,
+          "directional_velocity_manipulability": 0.1660031337386491,
+          "joint_limit_margin": 1.6700000000000002
+        },
+        "diagonal": {
+          "total_mass": 3.8000000000000007,
+          "total_length": 0.85,
+          "base_mass_first_moment": 1.4357,
+          "base_mass_second_moment": 0.7401294999999999,
+          "endpoint_mass_first_moment": 1.7943,
+          "endpoint_mass_second_moment": 1.0449395,
+          "directional_force_capacity": 36.6501150056712,
+          "requested_force_margin": 13.660046002268482,
+          "jacobian_sigma_min": 0.10658137693302447,
+          "jacobian_sigma_max": 1.0490642354375186,
+          "jacobian_condition_number": 9.842847461960906,
+          "yoshikawa_manipulability": 0.1118107107041213,
+          "directional_velocity_manipulability": 0.3268793846380871,
+          "joint_limit_margin": 1.6700000000000002
+        }
+      }
+    },
+    "initial_outputs": {
+      "v2_full": {
+        "arm5_reference": [
+          1.4109632495164413,
+          1.252006851832644,
+          0.8847595506200232
+        ],
+        "arm5_distal_heavy": [
+          1.410963249516441,
+          1.2792409895124837,
+          0.8847595506200233
+        ],
+        "arm5_weak_actuator": [
+          0.9406421663442941,
+          1.252006851832644,
+          0.8847595506200232
+        ],
+        "arm5_posture_shifted": [
+          0.9406421663442941,
+          1.252006851832644,
+          0.8156652998065764
+        ]
+      },
+      "v2_no_mass": {
+        "arm5_reference": [
+          1.4109632495164413,
+          1.2517408123791103,
+          0.8847595506200232
+        ],
+        "arm5_distal_heavy": [
+          1.410963249516441,
+          1.2517408123791103,
+          0.8847595506200233
+        ],
+        "arm5_weak_actuator": [
+          0.9406421663442941,
+          1.2517408123791103,
+          0.8847595506200232
+        ],
+        "arm5_posture_shifted": [
+          0.9406421663442941,
+          1.2517408123791103,
+          0.8156652998065764
+        ]
+      },
+      "v2_no_torque": {
+        "arm5_reference": [
+          1.306447453255964,
+          1.252006851832644,
+          0.8847595506200232
+        ],
+        "arm5_distal_heavy": [
+          1.3064474532559638,
+          1.2792409895124837,
+          0.8847595506200233
+        ],
+        "arm5_weak_actuator": [
+          1.306447453255964,
+          1.252006851832644,
+          0.8847595506200232
+        ],
+        "arm5_posture_shifted": [
+          1.306447453255964,
+          1.252006851832644,
+          0.8156652998065764
+        ]
+      },
+      "v2_no_jacobian": {
+        "arm5_reference": [
+          1.4109632495164413,
+          1.252006851832644,
+          0.8391618310767246
+        ],
+        "arm5_distal_heavy": [
+          1.410963249516441,
+          1.2792409895124837,
+          0.8391618310767247
+        ],
+        "arm5_weak_actuator": [
+          0.9406421663442941,
+          1.252006851832644,
+          0.8391618310767246
+        ],
+        "arm5_posture_shifted": [
+          0.9406421663442941,
+          1.252006851832644,
+          0.8391618310767246
+        ]
+      }
+    },
+    "gates": {
+      "equal_total_mass_and_length": true,
+      "mass_distinguishes_distal": true,
+      "torque_distinguishes_weak": true,
+      "jacobian_distinguishes_posture": true,
+      "task_direction_changes_capacity": true,
+      "all_finite": true,
+      "no_mass_removes_distal_gain_delta": true,
+      "no_torque_removes_weak_force_delta": true,
+      "no_jacobian_removes_posture_damping_delta": true
+    },
+    "gate_pass": true
+  },
+  "metrics": {
+    "v1": {
+      "trials": 384,
+      "success": 0.7109375,
+      "push_timeouts": 3,
+      "mean_energy": 54.02139040885013,
+      "mean_contact_losses": 24.160142348754448,
+      "severe_success": 0.0,
+      "by_body": {
+        "arm5_reference": {
+          "success": 0.7083333333333334,
+          "push_timeouts": 0,
+          "mean_energy": 55.167702906857265
+        },
+        "arm5_distal_heavy": {
+          "success": 0.7083333333333334,
+          "push_timeouts": 3,
+          "mean_energy": 44.153690369992546
+        },
+        "arm5_weak_actuator": {
+          "success": 0.7291666666666666,
+          "push_timeouts": 0,
+          "mean_energy": 59.01305959969354
+        },
+        "arm5_posture_shifted": {
+          "success": 0.6979166666666666,
+          "push_timeouts": 0,
+          "mean_energy": 57.751108758857164
+        }
+      },
+      "by_disturbance": {
+        "nominal": 0.9895833333333334,
+        "low_friction": 0.9791666666666666,
+        "latency_load": 0.875,
+        "severe": 0.0
+      }
+    },
+    "v2_full": {
+      "trials": 384,
+      "success": 0.7291666666666666,
+      "push_timeouts": 1,
+      "mean_energy": 52.50511225299234,
+      "mean_contact_losses": 25.800711743772244,
+      "severe_success": 0.0,
+      "by_body": {
+        "arm5_reference": {
+          "success": 0.71875,
+          "push_timeouts": 0,
+          "mean_energy": 53.72491184280753
+        },
+        "arm5_distal_heavy": {
+          "success": 0.75,
+          "push_timeouts": 0,
+          "mean_energy": 41.548915130117706
+        },
+        "arm5_weak_actuator": {
+          "success": 0.75,
+          "push_timeouts": 0,
+          "mean_energy": 57.964493878074755
+        },
+        "arm5_posture_shifted": {
+          "success": 0.6979166666666666,
+          "push_timeouts": 1,
+          "mean_energy": 56.78212816096936
+        }
+      },
+      "by_disturbance": {
+        "nominal": 1.0,
+        "low_friction": 0.9895833333333334,
+        "latency_load": 0.9270833333333334,
+        "severe": 0.0
+      }
+    },
+    "v2_no_mass": {
+      "trials": 384,
+      "success": 0.7213541666666666,
+      "push_timeouts": 2,
+      "mean_energy": 52.5627629054469,
+      "mean_contact_losses": 25.87544483985765,
+      "severe_success": 0.0,
+      "by_body": {
+        "arm5_reference": {
+          "success": 0.71875,
+          "push_timeouts": 0,
+          "mean_energy": 53.73417389088064
+        },
+        "arm5_distal_heavy": {
+          "success": 0.7395833333333334,
+          "push_timeouts": 1,
+          "mean_energy": 41.785970367981456
+        },
+        "arm5_weak_actuator": {
+          "success": 0.75,
+          "push_timeouts": 0,
+          "mean_energy": 57.97927616418277
+        },
+        "arm5_posture_shifted": {
+          "success": 0.6770833333333334,
+          "push_timeouts": 1,
+          "mean_energy": 56.75163119874276
+        }
+      },
+      "by_disturbance": {
+        "nominal": 0.9895833333333334,
+        "low_friction": 0.9895833333333334,
+        "latency_load": 0.90625,
+        "severe": 0.0
+      }
+    },
+    "v2_no_torque": {
+      "trials": 384,
+      "success": 0.7213541666666666,
+      "push_timeouts": 3,
+      "mean_energy": 54.055430987386295,
+      "mean_contact_losses": 24.12099644128114,
+      "severe_success": 0.0,
+      "by_body": {
+        "arm5_reference": {
+          "success": 0.7083333333333334,
+          "push_timeouts": 1,
+          "mean_energy": 55.335156583789775
+        },
+        "arm5_distal_heavy": {
+          "success": 0.71875,
+          "push_timeouts": 2,
+          "mean_energy": 44.21696147094252
+        },
+        "arm5_weak_actuator": {
+          "success": 0.75,
+          "push_timeouts": 0,
+          "mean_energy": 58.71526991497992
+        },
+        "arm5_posture_shifted": {
+          "success": 0.7083333333333334,
+          "push_timeouts": 0,
+          "mean_energy": 57.95433597983297
+        }
+      },
+      "by_disturbance": {
+        "nominal": 0.9791666666666666,
+        "low_friction": 0.9895833333333334,
+        "latency_load": 0.9166666666666666,
+        "severe": 0.0
+      }
+    },
+    "v2_no_jacobian": {
+      "trials": 384,
+      "success": 0.71875,
+      "push_timeouts": 2,
+      "mean_energy": 52.55156439085753,
+      "mean_contact_losses": 25.89679715302491,
+      "severe_success": 0.0,
+      "by_body": {
+        "arm5_reference": {
+          "success": 0.7083333333333334,
+          "push_timeouts": 0,
+          "mean_energy": 53.82346806091599
+        },
+        "arm5_distal_heavy": {
+          "success": 0.75,
+          "push_timeouts": 0,
+          "mean_energy": 41.60446645501736
+        },
+        "arm5_weak_actuator": {
+          "success": 0.75,
+          "push_timeouts": 0,
+          "mean_energy": 58.01620211289363
+        },
+        "arm5_posture_shifted": {
+          "success": 0.6666666666666666,
+          "push_timeouts": 2,
+          "mean_energy": 56.762120934603125
+        }
+      },
+      "by_disturbance": {
+        "nominal": 1.0,
+        "low_friction": 0.9895833333333334,
+        "latency_load": 0.8854166666666666,
+        "severe": 0.0
+      }
+    }
+  },
+  "full_vs_v1": {
+    "success_gain": 0.01822916666666663,
+    "body_success_gains": {
+      "arm5_reference": 0.01041666666666663,
+      "arm5_distal_heavy": 0.04166666666666663,
+      "arm5_weak_actuator": 0.02083333333333337,
+      "arm5_posture_shifted": 0.0
+    },
+    "push_timeout_reduction_fraction": 0.6666666666666666,
+    "energy_ratio": 0.9719318931930085,
+    "mcnemar": {
+      "baseline_only": 1,
+      "candidate_only": 8,
+      "discordant": 9,
+      "exact_p": 0.0390625
+    }
+  },
+  "ablation_behavior_attribution": {
+    "mass_distal_changed": true,
+    "torque_weak_changed": true,
+    "jacobian_posture_changed": true
+  },
+  "call_audit": {
+    "v2_full": {
+      "total_calls": 41485,
+      "by_body": {
+        "arm5_reference": {
+          "calls": 9142,
+          "q_min": [
+            1.683569716961417,
+            -2.479091742222641,
+            0.2885473155235011,
+            -2.110085608299348,
+            -0.5682083891435216
+          ],
+          "q_max": [
+            2.1626027494622027,
+            -1.8586861797241545,
+            0.9048088924231716,
+            -1.3826360659762003,
+            0.04226734811048182
+          ]
+        },
+        "arm5_distal_heavy": {
+          "calls": 9346,
+          "q_min": [
+            1.6223832729385124,
+            -2.3792569129641543,
+            0.2318398116535014,
+            -1.9200402022615368,
+            -0.48021076535842383
+          ],
+          "q_max": [
+            2.043532123875213,
+            -1.7402284901118668,
+            0.8655127819291191,
+            -1.4199338777042771,
+            0.01428729054896493
+          ]
+        },
+        "arm5_weak_actuator": {
+          "calls": 12724,
+          "q_min": [
+            1.897737267775188,
+            -2.8145353182018544,
+            0.6765693679811565,
+            -1.7755162989497926,
+            -0.4362917716211824
+          ],
+          "q_max": [
+            2.3690267107048153,
+            -2.3116463417903077,
+            1.0805896978569103,
+            -1.1547351479203058,
+            0.09240889913760356
+          ]
+        },
+        "arm5_posture_shifted": {
+          "calls": 10273,
+          "q_min": [
+            1.7120529329696532,
+            -2.5362489470278526,
+            0.4196521335157346,
+            -2.4162477650792074,
+            -0.5046921740687288
+          ],
+          "q_max": [
+            2.3616709901477853,
+            -1.968707112458443,
+            1.0201459382098352,
+            -1.410380244584633,
+            0.15215033581509502
+          ]
+        }
+      }
+    },
+    "v2_no_mass": {
+      "total_calls": 41520,
+      "by_body": {
+        "arm5_reference": {
+          "calls": 9206,
+          "q_min": [
+            1.6835576949008713,
+            -2.479091742222641,
+            0.2885473155235011,
+            -2.110085608299348,
+            -0.5682032896327471
+          ],
+          "q_max": [
+            2.162597595382979,
+            -1.856883369922546,
+            0.9054121587680629,
+            -1.3616447882219687,
+            0.03860740378110511
+          ]
+        },
+        "arm5_distal_heavy": {
+          "calls": 9380,
+          "q_min": [
+            1.6287484518244457,
+            -2.3792569129641543,
+            0.2318398116535014,
+            -1.9200402022615368,
+            -0.47901223459872816
+          ],
+          "q_max": [
+            2.045536884296846,
+            -1.7606489856071719,
+            0.8583634065107012,
+            -1.4086270953747229,
+            0.01363709724419724
+          ]
+        },
+        "arm5_weak_actuator": {
+          "calls": 12750,
+          "q_min": [
+            1.905630749053054,
+            -2.8145353182018544,
+            0.6765693679811565,
+            -1.7755162989497926,
+            -0.4362917716211824
+          ],
+          "q_max": [
+            2.3690338127128086,
+            -2.3171044125653104,
+            1.082620220012689,
+            -1.1562092528280277,
+            0.09293580669138977
+          ]
+        },
+        "arm5_posture_shifted": {
+          "calls": 10184,
+          "q_min": [
+            1.7090413742250439,
+            -2.5362489470278526,
+            0.4196521335157346,
+            -2.4162477650792074,
+            -0.5046841535992195
+          ],
+          "q_max": [
+            2.3616850213784963,
+            -1.9668564750599724,
+            1.0210467575198685,
+            -1.4083102057886496,
+            0.1501109559970504
+          ]
+        }
+      }
+    },
+    "v2_no_torque": {
+      "total_calls": 36477,
+      "by_body": {
+        "arm5_reference": {
+          "calls": 8668,
+          "q_min": [
+            1.6475137159295774,
+            -2.479091742222641,
+            0.2885473155235011,
+            -2.110085608299348,
+            -0.5523735471779281
+          ],
+          "q_max": [
+            2.1498236022983352,
+            -1.7919149159336138,
+            0.9318737400745476,
+            -1.3212013954511088,
+            0.04081552752179033
+          ]
+        },
+        "arm5_distal_heavy": {
+          "calls": 8744,
+          "q_min": [
+            1.532470495061395,
+            -2.3792569129641543,
+            0.2318398116535014,
+            -1.9200402022615368,
+            -0.4604834520043422
+          ],
+          "q_max": [
+            2.030138544536185,
+            -1.6687333056029796,
+            0.8597717211385806,
+            -1.3360884055874036,
+            0.047813135801725706
+          ]
+        },
+        "arm5_weak_actuator": {
+          "calls": 9407,
+          "q_min": [
+            1.8722383466834664,
+            -2.8145353182018544,
+            0.6765693679811565,
+            -1.7755162989497926,
+            -0.4362917716211824
+          ],
+          "q_max": [
+            2.3619664243501703,
+            -2.278597639478079,
+            1.0889796306187824,
+            -1.147322169613421,
+            0.09697770834848904
+          ]
+        },
+        "arm5_posture_shifted": {
+          "calls": 9658,
+          "q_min": [
+            1.7012625283386562,
+            -2.5362489470278526,
+            0.4196521335157346,
+            -2.4162477650792074,
+            -0.49184678788843605
+          ],
+          "q_max": [
+            2.3494657168602155,
+            -1.9476838470187825,
+            1.0293554375288823,
+            -1.3962487347888544,
+            0.15111865001328395
+          ]
+        }
+      }
+    },
+    "v2_no_jacobian": {
+      "total_calls": 41636,
+      "by_body": {
+        "arm5_reference": {
+          "calls": 9276,
+          "q_min": [
+            1.671888475889173,
+            -2.479091742222641,
+            0.2885473155235011,
+            -2.110085608299348,
+            -0.568087546681707
+          ],
+          "q_max": [
+            2.162279770229589,
+            -1.8604072405075447,
+            0.9104013280422226,
+            -1.3858379094841493,
+            0.047889107267498114
+          ]
+        },
+        "arm5_distal_heavy": {
+          "calls": 9352,
+          "q_min": [
+            1.6287484518244457,
+            -2.3792569129641543,
+            0.2318398116535014,
+            -1.9200402022615368,
+            -0.4819829579963396
+          ],
+          "q_max": [
+            2.0444125689722457,
+            -1.7545788365318098,
+            0.8555169806772347,
+            -1.4108866851970479,
+            0.016247984202403358
+          ]
+        },
+        "arm5_weak_actuator": {
+          "calls": 12753,
+          "q_min": [
+            1.9013085370043568,
+            -2.8145353182018544,
+            0.6765693679811565,
+            -1.7755162989497926,
+            -0.4362917716211824
+          ],
+          "q_max": [
+            2.3690828891773257,
+            -2.3114380646498973,
+            1.0777122419190337,
+            -1.155651464236802,
+            0.0953240707196504
+          ]
+        },
+        "arm5_posture_shifted": {
+          "calls": 10255,
+          "q_min": [
+            1.7048192627503729,
+            -2.5362489470278526,
+            0.4196521335157346,
+            -2.4162477650792074,
+            -0.504586110520789
+          ],
+          "q_max": [
+            2.3595956370414197,
+            -1.9397055140593376,
+            1.0068553589658567,
+            -1.4066076837543333,
+            0.15196775819177918
+          ]
+        }
+      }
+    }
+  },
+  "gates": {
+    "representation_gate_pass": true,
+    "full_success_gain_at_least_2pp": false,
+    "push_timeout_reduction_at_least_20pct": true,
+    "no_body_loses_more_than_2pp": true,
+    "energy_increase_at_most_25pct": true,
+    "severe_no_new_success": true,
+    "corresponding_ablation_changes_output_or_behavior": true,
+    "compiler_reads_dynamic_q": true
+  },
+  "gate_pass": false,
+  "claim_boundary": "Four constructed five-joint planar MuJoCo bodies; task-conditioned PUSH compilation only; feedback bus excluded; not real-robot evidence."
+}

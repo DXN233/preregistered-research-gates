@@ -1,0 +1,110 @@
+{
+  "design": {
+    "seeds": [
+      27001,
+      27002,
+      27003,
+      27004,
+      27005,
+      27006,
+      27007,
+      27008,
+      27009,
+      27010,
+      27011,
+      27012,
+      27013,
+      27014,
+      27015,
+      27016,
+      27017,
+      27018,
+      27019,
+      27020,
+      27021,
+      27022,
+      27023,
+      27024
+    ],
+    "bodies": [
+      "arm5_reference",
+      "arm5_distal_heavy",
+      "arm5_weak_actuator",
+      "arm5_posture_shifted"
+    ],
+    "episodes_per_cell": 96,
+    "physical_severe_frozen": {
+      "name": "severe",
+      "puck_friction": 0.08,
+      "joint_bias": 0.32,
+      "delay_steps": 6,
+      "sensor_noise": 0.0035,
+      "impulse_force": 0.8
+    }
+  },
+  "summaries": {
+    "delay_0_noise_0": {
+      "episodes": 96,
+      "successes": 33,
+      "success_rate": 0.34375,
+      "push_reached_rate": 0.9895833333333334,
+      "stage_timeouts": 63,
+      "first_failed_stage": {
+        "push": 62,
+        "null": 33,
+        "contact": 1
+      },
+      "unsafe": 0,
+      "mean_push_progress": 0.15326960550032817,
+      "success_delta_vs_baseline": 33
+    },
+    "delay_0_noise_0.0035": {
+      "episodes": 96,
+      "successes": 33,
+      "success_rate": 0.34375,
+      "push_reached_rate": 0.9895833333333334,
+      "stage_timeouts": 63,
+      "first_failed_stage": {
+        "null": 33,
+        "push": 62,
+        "contact": 1
+      },
+      "unsafe": 0,
+      "mean_push_progress": 0.1500831512768457,
+      "success_delta_vs_baseline": 33
+    },
+    "delay_6_noise_0": {
+      "episodes": 96,
+      "successes": 0,
+      "success_rate": 0.0,
+      "push_reached_rate": 0.0,
+      "stage_timeouts": 96,
+      "first_failed_stage": {
+        "approach": 96
+      },
+      "unsafe": 0,
+      "mean_push_progress": 0.0,
+      "success_delta_vs_baseline": 0
+    },
+    "delay_6_noise_0.0035": {
+      "episodes": 96,
+      "successes": 0,
+      "success_rate": 0.0,
+      "push_reached_rate": 0.0,
+      "stage_timeouts": 96,
+      "first_failed_stage": {
+        "approach": 96
+      },
+      "unsafe": 0,
+      "mean_push_progress": 0.0,
+      "success_delta_vs_baseline": 0
+    }
+  },
+  "safety_veto": false,
+  "decision": {
+    "any_nonbaseline_success": true,
+    "interaction_is_not_identified": "requires model comparison; cell contrasts are descriptive"
+  },
+  "claim_boundary": "2x2 delay/noise state-factor decomposition; descriptive association, not causal proof; no feedback or real-robot authorization.",
+  "trials_sha256": "474d06dfb548460e5d28fb81bca7a6708f0a396a3fea329ae9daa5ae1bdf018b"
+}
