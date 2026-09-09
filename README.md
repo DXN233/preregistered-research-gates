@@ -66,6 +66,7 @@ not the full historical source dataset.
 
 ## Status
 
-Local release candidate. No public repository or remote is configured. Before
-publication, ownership, license choice, repository name, hosting account and
-the final file list still require explicit confirmation.
+Public research-audit release: <https://github.com/DXN233/preregistered-research-gates>.
+It is licensed under MIT, and GitHub Actions reruns the release validator and
+regression tests on every push and pull request. The reproducibility and claim
+boundaries above remain part of the release contract.
