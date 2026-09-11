@@ -45,6 +45,8 @@ cases/
   readiness/           historical fail-closed readiness record
 docs/
   CLAIMS.md             allowed and disallowed interpretations
+  NEGATIVE_RESULTS_AS_RESEARCH_ASSETS.md
+                        note on when failed gates remain useful research
   PROVENANCE.md         source and recovery boundaries
 scripts/
   validate_release.py  clean-room release validator
