@@ -6,17 +6,13 @@ Local candidate validation date: 2026-09-08.
 
 | Check | Result |
 |---|---|
-| body-v2 trial hash and row count | pass, 1,920 rows |
-| body-v2 success gain | 0.0182292; below frozen 0.02 gate |
-| FilterPy development hash and row count | pass, 96 rows |
-| FilterPy holdout hash and row count | pass, 768 rows |
-| FilterPy behavior gate | fail, as preserved |
-| GTSAM behavior gate | not evaluated, as preserved |
-| posture trial hash and row count | pass, 384 rows |
+| archived-case boundary (body-v2, latency, posture) | pass: decisions public, no data files present |
+| body-v2 decision | gate false, as preregistered (numbers archived) |
+| latency decision | FilterPy gate fail; GTSAM not evaluated, as preserved |
 | posture interpretation | descriptive only |
 | reconstructed ExecutionEvidence replay | pass, 24 events and 8 episodes |
 | formal 2x2 readiness | false, with three blockers |
-| text hygiene scan | pass, 25 text files and zero matches |
+| text hygiene scan | pass, 19 text files and zero matches |
 
 ## Tests
 
