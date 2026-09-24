@@ -16,16 +16,19 @@ class ReleaseCandidateTests(unittest.TestCase):
     def test_body_v2_gate(self):
         result = VALIDATOR.check_body_v2()
         self.assertFalse(result["gate_pass"])
-        self.assertLess(result["success_gain"], 0.02)
+        self.assertTrue(result["archived"])
+        self.assertIsNone(result["success_gain"])
 
     def test_latency_gate_and_throughput_boundary(self):
         result = VALIDATOR.check_latency()
         self.assertFalse(result["filterpy_gate_pass"])
         self.assertEqual(result["gtsam_behavior_gate"], "not_evaluated")
+        self.assertTrue(result["archived"])
 
     def test_posture_is_descriptive(self):
         result = VALIDATOR.check_posture()
         self.assertEqual(result["interpretation"], "descriptive_only")
+        self.assertTrue(result["archived"])
 
     def test_execution_evidence_replay(self):
         result = VALIDATOR.check_execution_evidence()
