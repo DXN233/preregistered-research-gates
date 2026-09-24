@@ -49,8 +49,9 @@ the evidence does not support.
 
 The cases here preserve several different kinds of non-positive outcomes:
 
-- Body representation v2 passed mechanism checks, but its 1.8229 percentage
-  point behavior gain stayed below the preregistered 2-point gate.
+- Body representation v2 passed mechanism checks, but its behavior gain stayed
+  below the preregistered threshold, so the gate remained closed (exact figures
+  are archived pre-publication).
 - The FilterPy delayed-state estimator passed safety checks but failed its
   frozen behavior gate.
 - The GTSAM/Pinocchio run stopped on impractical throughput before producing a
