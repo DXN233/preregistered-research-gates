@@ -36,52 +36,35 @@ def require(condition: bool, message: str) -> None:
 
 
 def check_body_v2() -> dict:
+    """The frozen decision is public; the trial data is archived pre-publication."""
     folder = CASES / "body-v2"
-    result = load_json(folder / "body-v2-results.json")
-    trials = folder / "body-v2-trials.csv"
-    require(sha256(trials) == result["design"]["trials_sha256"], "body-v2 trial hash mismatch")
-    require(csv_rows(trials) == result["design"]["trials"], "body-v2 row count mismatch")
-    gain = result["metrics"]["v2_full"]["success"] - result["metrics"]["v1"]["success"]
-    require(abs(gain - result["full_vs_v1"]["success_gain"]) < 1e-12, "body-v2 gain mismatch")
-    require(gain < 0.02, "body-v2 unexpectedly clears the frozen 2pp gate")
-    require(result["representation_probe"]["gate_pass"] is True, "representation mechanism gate changed")
-    require(result["gate_pass"] is False, "body-v2 final gate changed")
-    return {"rows": csv_rows(trials), "success_gain": gain, "gate_pass": False}
-
+    readme = (folder / "README.md").read_text(encoding="utf-8")
+    require("gate: false" in readme, "body-v2 archived decision line missing")
+    require(not any(folder.glob("*.csv")), "body-v2 trial data must stay archived")
+    require(not any(folder.glob("*.json")), "body-v2 result data must stay archived")
+    return {"gate_pass": False, "archived": True, "success_gain": None}
 
 def check_latency() -> dict:
+    """Archived case: only the decision summary stays public."""
     folder = CASES / "latency"
-    result = load_json(folder / "filterpy-oosm-results.json")
-    development = folder / "filterpy-oosm-development.csv"
-    holdout = folder / "filterpy-oosm-holdout.csv"
-    require(sha256(development) == result["development_trials_sha256"], "latency development hash mismatch")
-    require(sha256(holdout) == result["holdout_trials_sha256"], "latency holdout hash mismatch")
-    require(result["gate_pass"] is False, "FilterPy behavior gate changed")
-    require(result["verdict"] == "filterpy_oosm_fail", "FilterPy verdict changed")
-    stop = load_json(folder / "gtsam-throughput-stop.json")
-    require(stop["status"] == "engineering_throughput_stop", "GTSAM stop status changed")
-    require(stop["behaviorGate"] == "not_evaluated", "GTSAM behavior must remain unknown")
-    require("dswInstance" not in stop.get("cloudCleanup", {}), "cloud instance identifier leaked")
+    readme = (folder / "README.md").read_text(encoding="utf-8")
+    require('"not evaluated"' in readme, "latency GTSAM boundary line missing")
+    require(not any(folder.glob("*.csv")), "latency tables must stay archived")
+    require(not any(folder.glob("*.json")), "latency results must stay archived")
     return {
-        "development_rows": csv_rows(development),
-        "holdout_rows": csv_rows(holdout),
         "filterpy_gate_pass": False,
         "gtsam_behavior_gate": "not_evaluated",
+        "archived": True,
     }
 
-
 def check_posture() -> dict:
+    """Archived case: descriptive diagnostic, data held back pre-publication."""
     folder = CASES / "posture"
-    result = load_json(folder / "severe-state-2x2-results.json")
-    trials = folder / "severe-state-2x2-trials.csv"
-    require(sha256(trials) == result["trials_sha256"], "posture trial hash mismatch")
-    require(csv_rows(trials) == 4 * result["design"]["episodes_per_cell"], "posture row count mismatch")
-    summaries = result["summaries"]
-    require(summaries["delay_6_noise_0"]["success_rate"] == 0.0, "delay-only cell changed")
-    require(summaries["delay_6_noise_0.0035"]["success_rate"] == 0.0, "delay-plus-noise cell changed")
-    require(result["decision"]["interaction_is_not_identified"], "descriptive boundary missing")
-    return {"rows": csv_rows(trials), "interpretation": "descriptive_only"}
-
+    readme = (folder / "README.md").read_text(encoding="utf-8")
+    require("descriptive" in readme, "posture descriptive boundary line missing")
+    require(not any(folder.glob("*.csv")), "posture table must stay archived")
+    require(not any(folder.glob("*.json")), "posture results must stay archived")
+    return {"rows": None, "interpretation": "descriptive_only", "archived": True}
 
 def check_execution_evidence() -> dict:
     folder = CASES / "execution-evidence"
