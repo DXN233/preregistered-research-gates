@@ -1,10 +1,7 @@
-# Severe delay x noise diagnostic
+# Posture delay x noise diagnostic — results archived
 
-This 384-row constructed-simulation table holds body, controller and physical
-disturbance fixed while comparing delay present/absent and sensor noise
-present/absent.
+A 2x2 descriptive diagnostic whose frozen conclusion (delay dominated the
+observed bottleneck; the tested noise level made little descriptive
+difference) is retained in the private archive pending publication.
 
-Under these frozen conditions, both delay-present cells had zero success while
-both delay-absent cells had 33/96 successes. This is a descriptive bottleneck
-diagnosis. It does not identify a general causal mediator and does not authorize
-feedback deployment or real-robot action.
+No causal claim was ever attached to this table, and none is made here.
