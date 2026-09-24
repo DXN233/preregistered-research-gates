@@ -5,9 +5,9 @@ artifacts. It does not depend on the lost source drive.
 
 | Package | Preserved material | Recovery boundary |
 |---|---|---|
-| body-v2 | 1,920-row trial table and frozen result JSON | The underlying simulator/controller source is not included |
-| latency | FilterPy development/holdout tables and result JSON; sanitized GTSAM throughput-stop record | The GTSAM batch returned no completed result package |
-| posture | 384-row severe delay x noise table and frozen descriptive result | The table supports only the stated frozen-condition contrast |
+| body-v2 | Decision record public; frozen trial table and result JSON archived pre-publication | The underlying simulator/controller source is not included |
+| latency | Decision record public; FilterPy tables, results and GTSAM stop record archived pre-publication | The GTSAM batch returned no completed result package |
+| posture | Decision record public; frozen table and result archived pre-publication | The table supports only the stated frozen-condition contrast |
 | execution-evidence | Standalone replay bus, schema and 24-event/8-episode minimal fixture | The fixture was reconstructed; it is not the original full source CSV or the historical 72-event/24-episode sample |
 | readiness | Historical machine-readable gate status | Recomputed against the preserved case results; no formal 2x2 is run |
 
