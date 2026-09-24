@@ -9,13 +9,18 @@ larger experiment are different claims.
 
 ## Included cases
 
-| Case | Preserved result | What it does not establish |
-|---|---|---|
-| Body representation v2 | Mechanism checks passed; behavior gain was 1.8229 percentage points, below the preregistered 2-point gate | General robot improvement or real-robot validity |
-| FilterPy delayed-state estimator | Safety checks passed, but the frozen behavior gate failed | A deployable latency estimator |
-| GTSAM/Pinocchio development run | The batch was stopped after roughly 136 minutes because throughput was impractical | A behavioral failure or benefit |
-| ExecutionEvidence v0.1 | Deterministic isolation, ordering and idempotency gates pass on a reconstructed minimal fixture | Policy improvement, physical feasibility, or recovery of the original dataset |
-| Formal 2x2 readiness | The larger experiment remains blocked by three explicit prerequisites | Evidence about the final algorithm |
+| Case | Preserved decision (public) | Trial data | What it does not establish |
+|---|---|---|---|
+| Body representation v2 | Mechanism passed; the preregistered behavior gate stayed **closed** | archived pre-publication | General robot improvement or real-robot validity |
+| FilterPy delayed-state estimator | The frozen behavior gate **failed** | archived pre-publication | A deployable latency estimator |
+| GTSAM/Pinocchio development run | Stopped on engineering throughput; behavior gate **never evaluated** | archived pre-publication | A behavioral failure or benefit |
+| ExecutionEvidence v0.1 | Deterministic isolation, ordering and idempotency gates pass on a reconstructed minimal fixture | included, rerunnable | Policy improvement, physical feasibility, or recovery of the original dataset |
+| Formal 2x2 readiness | The larger experiment remains blocked by three explicit prerequisites | n/a | Evidence about the final algorithm |
+
+Three gated cases keep their preregistered decisions public while their frozen
+trial tables are held in a private archive until the corresponding paper is
+submitted. The decisions are binding either way; the archive exists so that
+publication review can re-derive them from the full data.
 
 The posture delay-by-noise result is included as a descriptive diagnostic. It
 is not presented as a general causal mediation result.
@@ -56,10 +61,12 @@ tests/
 
 ## Reproducibility boundary
 
-The tabular artifacts reproduce the published **decisions and gates**, not the
+The public artifacts reproduce the published **decisions and gates**, not the
 underlying MuJoCo simulations. The original control baseline is intentionally
-not included in this candidate release. This keeps the package useful for
-research-audit practice without releasing the highest-value control mechanism.
+not included, and three case datasets are archived pre-publication; the
+release validator enforces both boundaries (it fails if archived data files
+reappear). This keeps the package useful for research-audit practice without
+releasing the highest-value control mechanism or pre-empting paper review.
 
 ExecutionEvidence is the exception: its replay bus and minimal recovered
 fixture are included and can be rerun end to end. The fixture was reconstructed
