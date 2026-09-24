@@ -1,11 +1,10 @@
-# Body representation v2 gate
+# Body representation v2 gate — results archived
 
-The frozen table contains 1,920 constructed MuJoCo trials across 24 seeds,
-four bodies, four disturbances and five conditions.
+A preregistered promotion gate was defined for this case before evaluation.
+The frozen outcome (a mechanism pass whose behavior gain stayed below the
+preregistered threshold, so the final gate remained closed) is preserved in a
+private archive and will be republished with the corresponding paper.
 
-The representation probe passed. The behavior comparison changed success from
-0.7109375 to 0.7291667, a gain of 0.0182292. Because the preregistered promotion
-gate required at least 0.02, the final gate remains false.
-
-The simulator and control baseline are not included. This case reproduces the
-decision from the published trials; it does not reproduce trial generation.
+The public decision record therefore stands without the trial table:
+**gate: false — as preregistered.** The trial data, design matrix and numeric
+gains are intentionally omitted from this public copy until publication.
